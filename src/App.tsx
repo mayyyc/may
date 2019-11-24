@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-const App: React.FC = () => {
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Home } from "./Home";
+import { SillyApps } from "./SillyApps";
+import styled from "styled-components";
+const Container = styled.div`
+  background-color: #262626;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f2f2f2;
+`;
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/silly-apps" component={SillyApps} />
+        </Switch>
+      </Router>
+    </Container>
   );
 }
 
